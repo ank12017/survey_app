@@ -1,0 +1,10 @@
+
+  <%= form.label :title, "Question" %><br>
+  <%= form.text_area :title, :rows => 3 %><br>
+  <%= form.check_box :_destroy %>
+  <%= form.label :_destroy, "Remove Question" %>
+
+<%= form.fields_for :answers do |builder| %>
+  <%= render 'answer', :form => builder %>
+<% end %>
+
