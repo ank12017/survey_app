@@ -9,6 +9,30 @@
   </head>
 
   <body>
+   <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><%= link_to 'survey', surveys_path %></li>
+      <li><a href="#">Page 2</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+    <% if user_signed_in? %>
+    <li><%= link_to 'log_out', destroy_user_session_path, method: :delete %></li>
+    <li><%= link_to "Profile", edit_user_registration_path %></li>
+    <% else %>
+      <li><%= link_to 'sign_up', new_user_registration_path %><span class="glyphicon glyphicon-user"></span></li>
+      <li><%= link_to 'log_in', new_user_session_path %><span class="glyphicon glyphicon-log-in"></span></li>
+      <% end %>
+    </ul>
+  </div>
+</nav> 
+  <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>

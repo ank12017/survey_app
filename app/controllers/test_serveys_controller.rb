@@ -1,0 +1,2 @@
+class TestServeysController < ApplicationController
+end
