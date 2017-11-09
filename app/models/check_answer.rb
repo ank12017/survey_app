@@ -1,0 +1,3 @@
+class CheckAnswer < ApplicationRecord
+
+end

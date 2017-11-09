@@ -6,7 +6,7 @@
       <%= q.title %> 
       <% q.answers.each do |a| %><br>
         <%= f.radio_button "#{q.id}", "#{a.id}" %>    
-        <%= a.title %>    
+        <%= a.title %>  <%= a.correct_answer %>  
       <% end %>  
     <% end %><br>
       
@@ -14,4 +14,6 @@
   <% end %>
 
 
-  
+
+
+ 
