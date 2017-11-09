@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+  <%= @survey.name %>
+  <%= form_for :check_answer, url: :check_answer_test_surveys, method: 'post' do |f| %>
+    <%= hidden_field_tag :survey_id,  @survey.id %>
+    <% @survey.questions.each do |q| %><br>
+      <%= q.title %> 
+      <% q.answers.each do |a| %><br>
+        <%= f.radio_button "#{q.id}", "#{a.id}" %>    
+        <%= a.title %>    
+      <% end %>  
+    <% end %><br>
+      
+    <%= f.submit %>
+  <% end %>
+
+
+  

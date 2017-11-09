@@ -5,8 +5,7 @@
   <li><%=  question.title %></li>
   <ul>
     <% for answer in question.answers %>
-      <li><%=  answer.title %></li>
-      <li><%= answer.correct_answer %></li>
+      <li><%=  answer.title %> <span style= 'color: red;'><%= answer.correct_answer %></span></li>
     <% end %>
   </ul>
   <% end %>

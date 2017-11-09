@@ -5,8 +5,6 @@ class SurveysController < ApplicationController
   # GET /surveys.json
   def index
     @surveys = Survey.all
-    @questions = Question.all
-    @answers= Answer.all
   end
 
   # GET /surveys/1
@@ -31,7 +29,7 @@ class SurveysController < ApplicationController
   # POST /surveys.json
   def create
     @survey = Survey.new(survey_params)
-   
+  
  
     respond_to do |format|
       if @survey.save
