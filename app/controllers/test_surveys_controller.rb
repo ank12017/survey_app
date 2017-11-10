@@ -8,7 +8,7 @@ class TestSurveysController < ApplicationController
 	end
   
 	def check_answer
-     
+     # all survey user & question answers in this check_answer 
 	  check_params.each do |key, value|
 	  	check_answer = CheckAnswer.new
 	  	check_answer.survey_id = params[:survey_id]
@@ -21,6 +21,7 @@ class TestSurveysController < ApplicationController
 	end
 
 	def user_result
+		# admin correct answers
 		right_answer = {}
 		@survey = Survey.find(params[:id])
 		@survey.questions.each do |q|
@@ -30,12 +31,13 @@ class TestSurveysController < ApplicationController
 				end
 			end
 		end
+		# user's ticked answers
 		user_answer = {}
 		check_user_answer =  CheckAnswer.where(user_id: current_user.id, survey_id: @survey.id)
 	  check_user_answer.each do |ans|
 	  	user_answer[ans.question_id] = ans.answer_id
 	  end
-    
+    # compare the correct answers of admin n ticked anwsers of user for result
     @results = 0
 	  right_answer.each do |key, value|
 	  	user_answer.each do |q_key, a_value|
