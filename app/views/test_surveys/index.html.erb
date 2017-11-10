@@ -13,8 +13,11 @@
     <% @surveys.each do |survey| %>
       <tr>
       <td><%= survey.name %></td>
+      <% if !check_survey(survey).blank? %>
+        <td><%= link_to 'result',  user_result_test_surveys_path(id: survey.id) %></td>
+      <% else %>
         <td><%= link_to 'Test', test_survey_path(survey) %></td>
-        <td><%= link_to 'result', test_survey_path(survey) %></td>
+      <% end %> 
       </tr>
     <% end %>
   </tbody>

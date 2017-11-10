@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :test_surveys do 
   	collection do
   	  post :check_answer
+      get :user_result
   	end
   end
 end
