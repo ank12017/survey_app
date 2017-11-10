@@ -1,1 +1,19 @@
-<h1> your correct answer score is <%= @results %></h1>
+<% @right_answer.each do |key, value| %>
+  <% @user_answer.each do |q_key, a_value| %> 
+    <% if key == q_key %>
+        <p style="font-style: italic; bold;">Que=><%= Question.find(key).title %></p>
+   
+      <% if value == a_value %>
+       <% @survey.questions.each do |q| %><br>
+       <% if q.id == key %>
+          <ol><% q.answers.each do |a| %><br>
+              <li><%= a.title %></li>
+              <% end %></ol>
+        <%end %>
+        <% end%>
+          <p style='color:green'>Ans=><%= Answer.find(value).title %></p>
+
+      <%end %>
+    <% end %>
+  <%end %>
+<%end %>
